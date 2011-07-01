@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8245E50113BE563400A3829A /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 8245E50013BE563400A3829A /* README.markdown */; };
+		8245E50813BE5A2700A3829A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 8245E50713BE5A2700A3829A /* LICENSE */; };
 		82902D0313BE4AC700EAC215 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82902D0213BE4AC700EAC215 /* UIKit.framework */; };
 		82902D0513BE4AC700EAC215 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82902D0413BE4AC700EAC215 /* Foundation.framework */; };
 		82902D0713BE4AC700EAC215 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82902D0613BE4AC700EAC215 /* CoreGraphics.framework */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		8245E50013BE563400A3829A /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
+		8245E50713BE5A2700A3829A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		82902CFE13BE4AC700EAC215 /* STSegmentedControlDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STSegmentedControlDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82902D0213BE4AC700EAC215 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		82902D0413BE4AC700EAC215 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				8245E50013BE563400A3829A /* README.markdown */,
+				8245E50713BE5A2700A3829A /* LICENSE */,
 				82902D0813BE4AC700EAC215 /* STSegmentedControlDemo */,
 				82902D0113BE4AC700EAC215 /* Frameworks */,
 				82902CFF13BE4AC700EAC215 /* Products */,
@@ -231,6 +234,7 @@
 				82902D3E13BE4AED00EAC215 /* selected_right@2x.png in Resources */,
 				82902D3F13BE4AED00EAC215 /* SomeIcon.png in Resources */,
 				8245E50113BE563400A3829A /* README.markdown in Resources */,
+				8245E50813BE5A2700A3829A /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
