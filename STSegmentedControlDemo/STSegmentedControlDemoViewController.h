@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class STSegmentedControl;
+
 @interface STSegmentedControlDemoViewController : UIViewController {
-    
+    STSegmentedControl *segment;
+	UISegmentedControl *standardSegment;
 }
+
+@property (nonatomic, retain) STSegmentedControl *segment;
+@property (nonatomic, retain) UISegmentedControl *standardSegment;
 
 @end
