@@ -1,0 +1,286 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		82902D0313BE4AC700EAC215 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82902D0213BE4AC700EAC215 /* UIKit.framework */; };
+		82902D0513BE4AC700EAC215 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82902D0413BE4AC700EAC215 /* Foundation.framework */; };
+		82902D0713BE4AC700EAC215 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82902D0613BE4AC700EAC215 /* CoreGraphics.framework */; };
+		82902D0D13BE4AC700EAC215 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 82902D0B13BE4AC700EAC215 /* InfoPlist.strings */; };
+		82902D1013BE4AC700EAC215 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82902D0F13BE4AC700EAC215 /* main.m */; };
+		82902D1313BE4AC700EAC215 /* STSegmentedControlDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82902D1213BE4AC700EAC215 /* STSegmentedControlDemoAppDelegate.m */; };
+		82902D1613BE4AC700EAC215 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82902D1413BE4AC700EAC215 /* MainWindow.xib */; };
+		82902D1913BE4AC700EAC215 /* STSegmentedControlDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82902D1813BE4AC700EAC215 /* STSegmentedControlDemoViewController.m */; };
+		82902D1C13BE4AC700EAC215 /* STSegmentedControlDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82902D1A13BE4AC700EAC215 /* STSegmentedControlDemoViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		82902CFE13BE4AC700EAC215 /* STSegmentedControlDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STSegmentedControlDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		82902D0213BE4AC700EAC215 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		82902D0413BE4AC700EAC215 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		82902D0613BE4AC700EAC215 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		82902D0A13BE4AC700EAC215 /* STSegmentedControlDemo-Info.plist */ = {isa = PBXFileReference; path = "STSegmentedControlDemo-Info.plist"; sourceTree = "<group>"; };
+		82902D0C13BE4AC700EAC215 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		82902D0E13BE4AC700EAC215 /* STSegmentedControlDemo-Prefix.pch */ = {isa = PBXFileReference; path = "STSegmentedControlDemo-Prefix.pch"; sourceTree = "<group>"; };
+		82902D0F13BE4AC700EAC215 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		82902D1113BE4AC700EAC215 /* STSegmentedControlDemoAppDelegate.h */ = {isa = PBXFileReference; path = STSegmentedControlDemoAppDelegate.h; sourceTree = "<group>"; };
+		82902D1213BE4AC700EAC215 /* STSegmentedControlDemoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STSegmentedControlDemoAppDelegate.m; sourceTree = "<group>"; };
+		82902D1513BE4AC700EAC215 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		82902D1713BE4AC700EAC215 /* STSegmentedControlDemoViewController.h */ = {isa = PBXFileReference; path = STSegmentedControlDemoViewController.h; sourceTree = "<group>"; };
+		82902D1813BE4AC700EAC215 /* STSegmentedControlDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STSegmentedControlDemoViewController.m; sourceTree = "<group>"; };
+		82902D1B13BE4AC700EAC215 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/STSegmentedControlDemoViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		82902CFB13BE4AC700EAC215 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82902D0313BE4AC700EAC215 /* UIKit.framework in Frameworks */,
+				82902D0513BE4AC700EAC215 /* Foundation.framework in Frameworks */,
+				82902D0713BE4AC700EAC215 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		82902CF313BE4AC700EAC215 = {
+			isa = PBXGroup;
+			children = (
+				82902D0813BE4AC700EAC215 /* STSegmentedControlDemo */,
+				82902D0113BE4AC700EAC215 /* Frameworks */,
+				82902CFF13BE4AC700EAC215 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		82902CFF13BE4AC700EAC215 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				82902CFE13BE4AC700EAC215 /* STSegmentedControlDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		82902D0113BE4AC700EAC215 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82902D0213BE4AC700EAC215 /* UIKit.framework */,
+				82902D0413BE4AC700EAC215 /* Foundation.framework */,
+				82902D0613BE4AC700EAC215 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		82902D0813BE4AC700EAC215 /* STSegmentedControlDemo */ = {
+			isa = PBXGroup;
+			children = (
+				82902D1113BE4AC700EAC215 /* STSegmentedControlDemoAppDelegate.h */,
+				82902D1213BE4AC700EAC215 /* STSegmentedControlDemoAppDelegate.m */,
+				82902D1413BE4AC700EAC215 /* MainWindow.xib */,
+				82902D1713BE4AC700EAC215 /* STSegmentedControlDemoViewController.h */,
+				82902D1813BE4AC700EAC215 /* STSegmentedControlDemoViewController.m */,
+				82902D1A13BE4AC700EAC215 /* STSegmentedControlDemoViewController.xib */,
+				82902D0913BE4AC700EAC215 /* Supporting Files */,
+			);
+			path = STSegmentedControlDemo;
+			sourceTree = "<group>";
+		};
+		82902D0913BE4AC700EAC215 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				82902D0A13BE4AC700EAC215 /* STSegmentedControlDemo-Info.plist */,
+				82902D0B13BE4AC700EAC215 /* InfoPlist.strings */,
+				82902D0E13BE4AC700EAC215 /* STSegmentedControlDemo-Prefix.pch */,
+				82902D0F13BE4AC700EAC215 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		82902CFD13BE4AC700EAC215 /* STSegmentedControlDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82902D1F13BE4AC700EAC215 /* Build configuration list for PBXNativeTarget "STSegmentedControlDemo" */;
+			buildPhases = (
+				82902CFA13BE4AC700EAC215 /* Sources */,
+				82902CFB13BE4AC700EAC215 /* Frameworks */,
+				82902CFC13BE4AC700EAC215 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = STSegmentedControlDemo;
+			productName = STSegmentedControlDemo;
+			productReference = 82902CFE13BE4AC700EAC215 /* STSegmentedControlDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		82902CF513BE4AC700EAC215 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = FreshCreations;
+			};
+			buildConfigurationList = 82902CF813BE4AC700EAC215 /* Build configuration list for PBXProject "STSegmentedControlDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 82902CF313BE4AC700EAC215;
+			productRefGroup = 82902CFF13BE4AC700EAC215 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				82902CFD13BE4AC700EAC215 /* STSegmentedControlDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		82902CFC13BE4AC700EAC215 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82902D0D13BE4AC700EAC215 /* InfoPlist.strings in Resources */,
+				82902D1613BE4AC700EAC215 /* MainWindow.xib in Resources */,
+				82902D1C13BE4AC700EAC215 /* STSegmentedControlDemoViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		82902CFA13BE4AC700EAC215 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82902D1013BE4AC700EAC215 /* main.m in Sources */,
+				82902D1313BE4AC700EAC215 /* STSegmentedControlDemoAppDelegate.m in Sources */,
+				82902D1913BE4AC700EAC215 /* STSegmentedControlDemoViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		82902D0B13BE4AC700EAC215 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				82902D0C13BE4AC700EAC215 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		82902D1413BE4AC700EAC215 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				82902D1513BE4AC700EAC215 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		82902D1A13BE4AC700EAC215 /* STSegmentedControlDemoViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				82902D1B13BE4AC700EAC215 /* en */,
+			);
+			name = STSegmentedControlDemoViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		82902D1D13BE4AC700EAC215 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		82902D1E13BE4AC700EAC215 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		82902D2013BE4AC700EAC215 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "STSegmentedControlDemo/STSegmentedControlDemo-Prefix.pch";
+				INFOPLIST_FILE = "STSegmentedControlDemo/STSegmentedControlDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		82902D2113BE4AC700EAC215 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "STSegmentedControlDemo/STSegmentedControlDemo-Prefix.pch";
+				INFOPLIST_FILE = "STSegmentedControlDemo/STSegmentedControlDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		82902CF813BE4AC700EAC215 /* Build configuration list for PBXProject "STSegmentedControlDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82902D1D13BE4AC700EAC215 /* Debug */,
+				82902D1E13BE4AC700EAC215 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82902D1F13BE4AC700EAC215 /* Build configuration list for PBXNativeTarget "STSegmentedControlDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82902D2013BE4AC700EAC215 /* Debug */,
+				82902D2113BE4AC700EAC215 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 82902CF513BE4AC700EAC215 /* Project object */;
+}
