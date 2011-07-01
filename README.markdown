@@ -10,4 +10,4 @@ Using STSegmentedControl is straightforward. If you change your instances of UIS
 
 My implementation does however have certain requirements for the images. The images are partially being overlaid, so you may have to fiddle with your shadows/transparency a little. You can check out the demo images to see how it's done.
 
-Hit me up on [Twitter](twitter.com/SkyTrix) or send me an [email](mailto:cedric@freshcreations.be).
+Hit me up on [Twitter](http://twitter.com/SkyTrix) or send me an [email](mailto:cedric@freshcreations.be).
