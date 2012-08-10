@@ -72,7 +72,7 @@
 #pragma mark initWithCoder for IB support
 
 - (id)initWithCoder:(NSCoder *)decoder {
-    if(self == [super initWithCoder:decoder]) {
+    if((self = [super initWithCoder:decoder])) {
 		self.backgroundColor = [UIColor clearColor];
 		self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, STSegmentedControlHeight);
 		
