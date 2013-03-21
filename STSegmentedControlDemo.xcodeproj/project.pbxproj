@@ -66,6 +66,7 @@
 		82902D2F13BE4AED00EAC215 /* SomeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SomeIcon.png; sourceTree = "<group>"; };
 		82902D3113BE4AED00EAC215 /* STSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSegmentedControl.h; sourceTree = "<group>"; };
 		82902D3213BE4AED00EAC215 /* STSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSegmentedControl.m; sourceTree = "<group>"; };
+		8BFB6B4516FB4E10003EF279 /* STSegmentedControlUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STSegmentedControlUI.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +162,7 @@
 		82902D3013BE4AED00EAC215 /* STSegmentedControl */ = {
 			isa = PBXGroup;
 			children = (
+				8BFB6B4516FB4E10003EF279 /* STSegmentedControlUI.h */,
 				82902D3113BE4AED00EAC215 /* STSegmentedControl.h */,
 				82902D3213BE4AED00EAC215 /* STSegmentedControl.m */,
 			);

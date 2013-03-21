@@ -7,6 +7,7 @@
 //
 
 #import "STSegmentedControl.h"
+#import "STSegmentedControlUI.h"
 
 @interface STSegmentedControl (Private)
 - (void)updateUI;
@@ -24,18 +25,18 @@
 #pragma mark Initializer
 
 - (id)initWithFrame:(CGRect)frame {
-    if((self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, STSegmentedControlHeight)])) {
+    if((self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, kSTSegmentHeight)])) {
 		self.backgroundColor = [UIColor clearColor];
 		
 		/*
 		 Set the standard images
 		 */
-		normalImageLeft = [[UIImage imageNamed:@"normal_left.png"] retain];
-		normalImageMiddle = [[UIImage imageNamed:@"normal_middle.png"] retain];
-		normalImageRight= [[UIImage imageNamed:@"normal_right.png"] retain];
-		selectedImageLeft = [[UIImage imageNamed:@"selected_left.png"] retain];
-		selectedImageMiddle = [[UIImage imageNamed:@"selected_middle.png"] retain];
-		selectedImageRight = [[UIImage imageNamed:@"selected_right.png"] retain];
+		normalImageLeft = [[UIImage imageNamed:kSTSegmentLeftBtn] retain];
+		normalImageMiddle = [[UIImage imageNamed:kSTSegmentMiddleBtn] retain];
+		normalImageRight= [[UIImage imageNamed:kSTSegmentRightBtn] retain];
+		selectedImageLeft = [[UIImage imageNamed:kSTSegmentLeftSelectedBtn] retain];
+		selectedImageMiddle = [[UIImage imageNamed:kSTSegmentMiddleSelectedBtn] retain];
+		selectedImageRight = [[UIImage imageNamed:kSTSegmentRightSelectedBtn] retain];
 		
 		selectedSegmentIndex = STSegmentedControlNoSegment;
 		momentary = NO;
@@ -50,12 +51,12 @@
 		/*
 		 Set the standard images
 		 */
-		normalImageLeft = [[UIImage imageNamed:@"normal_left.png"] retain];
-		normalImageMiddle = [[UIImage imageNamed:@"normal_middle.png"] retain];
-		normalImageRight= [[UIImage imageNamed:@"normal_right.png"] retain];
-		selectedImageLeft = [[UIImage imageNamed:@"selected_left.png"] retain];
-		selectedImageMiddle = [[UIImage imageNamed:@"selected_middle.png"] retain];
-		selectedImageRight = [[UIImage imageNamed:@"selected_right.png"] retain];
+		normalImageLeft = [[UIImage imageNamed:kSTSegmentLeftBtn] retain];
+		normalImageMiddle = [[UIImage imageNamed:kSTSegmentMiddleBtn] retain];
+		normalImageRight= [[UIImage imageNamed:kSTSegmentRightBtn] retain];
+		selectedImageLeft = [[UIImage imageNamed:kSTSegmentLeftSelectedBtn] retain];
+		selectedImageMiddle = [[UIImage imageNamed:kSTSegmentMiddleSelectedBtn] retain];
+		selectedImageRight = [[UIImage imageNamed:kSTSegmentRightSelectedBtn] retain];
 		
 		selectedSegmentIndex = STSegmentedControlNoSegment;
 		momentary = NO;
@@ -74,17 +75,17 @@
 - (id)initWithCoder:(NSCoder *)decoder {
     if((self = [super initWithCoder:decoder])) {
 		self.backgroundColor = [UIColor clearColor];
-		self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, STSegmentedControlHeight);
+		self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, kSTSegmentHeight);
 		
 		/*
 		 Set the standard images
 		 */
-		normalImageLeft = [[UIImage imageNamed:@"normal_left.png"] retain];
-		normalImageMiddle = [[UIImage imageNamed:@"normal_middle.png"] retain];
-		normalImageRight= [[UIImage imageNamed:@"normal_right.png"] retain];
-		selectedImageLeft = [[UIImage imageNamed:@"selected_left.png"] retain];
-		selectedImageMiddle = [[UIImage imageNamed:@"selected_middle.png"] retain];
-		selectedImageRight = [[UIImage imageNamed:@"selected_right.png"] retain];
+		normalImageLeft = [[UIImage imageNamed:kSTSegmentLeftBtn] retain];
+		normalImageMiddle = [[UIImage imageNamed:kSTSegmentMiddleBtn] retain];
+		normalImageRight= [[UIImage imageNamed:kSTSegmentRightBtn] retain];
+		selectedImageLeft = [[UIImage imageNamed:kSTSegmentLeftSelectedBtn] retain];
+		selectedImageMiddle = [[UIImage imageNamed:kSTSegmentMiddleSelectedBtn] retain];
+		selectedImageRight = [[UIImage imageNamed:kSTSegmentRightSelectedBtn] retain];
 		
 		selectedSegmentIndex = STSegmentedControlNoSegment;
 		momentary = NO;
@@ -135,23 +136,23 @@
 			if(indexOfObject == 0)
 			{
 				if(selectedSegmentIndex == indexOfObject)
-					[button setBackgroundImage:[selectedImageLeft stretchableImageWithLeftCapWidth:6 topCapHeight:0] forState:UIControlStateNormal];
+					[button setBackgroundImage:[selectedImageLeft stretchableImageWithLeftCapWidth:kSTSegmentLeftBtnLeftCap topCapHeight:kSTSegmentLeftBtnTopCap] forState:UIControlStateNormal];
 				else
-					[button setBackgroundImage:[normalImageLeft stretchableImageWithLeftCapWidth:6 topCapHeight:0] forState:UIControlStateNormal];
+					[button setBackgroundImage:[normalImageLeft stretchableImageWithLeftCapWidth:kSTSegmentLeftBtnLeftCap topCapHeight:kSTSegmentLeftBtnTopCap] forState:UIControlStateNormal];
 			}
 			else if(indexOfObject == numberOfSegments - 1)
 			{
 				if(selectedSegmentIndex == indexOfObject)
-					[button setBackgroundImage:[selectedImageRight stretchableImageWithLeftCapWidth:1 topCapHeight:0] forState:UIControlStateNormal];
+					[button setBackgroundImage:[selectedImageRight stretchableImageWithLeftCapWidth:kSTSegmentRightBtnLeftCap topCapHeight:kSTSegmentRightBtnTopCap] forState:UIControlStateNormal];
 				else
-					[button setBackgroundImage:[normalImageRight stretchableImageWithLeftCapWidth:1 topCapHeight:0] forState:UIControlStateNormal];
+					[button setBackgroundImage:[normalImageRight stretchableImageWithLeftCapWidth:kSTSegmentRightBtnLeftCap topCapHeight:kSTSegmentRightBtnTopCap] forState:UIControlStateNormal];
 			}
 			else
 			{
 				if(selectedSegmentIndex == indexOfObject)
-					[button setBackgroundImage:[selectedImageMiddle stretchableImageWithLeftCapWidth:1 topCapHeight:0] forState:UIControlStateNormal];
+					[button setBackgroundImage:[selectedImageMiddle stretchableImageWithLeftCapWidth:kSTSegmentMiddleBtnLeftCap topCapHeight:kSTSegmentMiddleBtnTopCap] forState:UIControlStateNormal];
 				else
-					[button setBackgroundImage:[normalImageMiddle stretchableImageWithLeftCapWidth:1 topCapHeight:0] forState:UIControlStateNormal];
+					[button setBackgroundImage:[normalImageMiddle stretchableImageWithLeftCapWidth:kSTSegmentMiddleBtnLeftCap topCapHeight:kSTSegmentMiddleBtnTopCap] forState:UIControlStateNormal];
 			}
 			
 			button.frame = segmentFrame;
@@ -193,15 +194,15 @@
 	{
 		if(button.tag == 1)
 		{
-			[button setBackgroundImage:[normalImageLeft stretchableImageWithLeftCapWidth:6 topCapHeight:0] forState:UIControlStateNormal];
+			[button setBackgroundImage:[normalImageLeft stretchableImageWithLeftCapWidth:kSTSegmentLeftBtnLeftCap topCapHeight:kSTSegmentLeftBtnTopCap] forState:UIControlStateNormal];
 		}
 		else if(button.tag == numberOfSegments)
 		{
-			[button setBackgroundImage:[normalImageRight stretchableImageWithLeftCapWidth:1 topCapHeight:0] forState:UIControlStateNormal];
+			[button setBackgroundImage:[normalImageRight stretchableImageWithLeftCapWidth:kSTSegmentRightBtnLeftCap topCapHeight:kSTSegmentRightBtnTopCap] forState:UIControlStateNormal];
 		}
 		else
 		{
-			[button setBackgroundImage:[normalImageMiddle stretchableImageWithLeftCapWidth:1 topCapHeight:0] forState:UIControlStateNormal];
+			[button setBackgroundImage:[normalImageMiddle stretchableImageWithLeftCapWidth:kSTSegmentMiddleBtnLeftCap topCapHeight:kSTSegmentMiddleBtnTopCap] forState:UIControlStateNormal];
 		}
 	}
 }
@@ -237,15 +238,15 @@
 	 */
 	if(button.tag == 1)
 	{
-		[button setBackgroundImage:[selectedImageLeft stretchableImageWithLeftCapWidth:6 topCapHeight:0] forState:UIControlStateNormal];
+		[button setBackgroundImage:[selectedImageLeft stretchableImageWithLeftCapWidth:kSTSegmentLeftBtnLeftCap topCapHeight:kSTSegmentLeftBtnTopCap] forState:UIControlStateNormal];
 	}
 	else if(button.tag == numberOfSegments)
 	{
-		[button setBackgroundImage:[selectedImageRight stretchableImageWithLeftCapWidth:1 topCapHeight:0] forState:UIControlStateNormal];
+		[button setBackgroundImage:[selectedImageRight stretchableImageWithLeftCapWidth:kSTSegmentRightBtnLeftCap topCapHeight:kSTSegmentRightBtnTopCap] forState:UIControlStateNormal];
 	}
 	else
 	{
-		[button setBackgroundImage:[selectedImageMiddle stretchableImageWithLeftCapWidth:1 topCapHeight:0] forState:UIControlStateNormal];
+		[button setBackgroundImage:[selectedImageMiddle stretchableImageWithLeftCapWidth:kSTSegmentMiddleBtnLeftCap topCapHeight:kSTSegmentMiddleBtnTopCap] forState:UIControlStateNormal];
 	}
 	
 	if(momentary)
@@ -369,7 +370,7 @@
 }
 
 - (void)setFrame:(CGRect)rect {
-	[super setFrame:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, STSegmentedControlHeight)];
+	[super setFrame:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, kSTSegmentHeight)];
 	[self updateUI];
 }
 
