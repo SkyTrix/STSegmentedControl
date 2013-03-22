@@ -31,12 +31,12 @@
 		/*
 		 Set the standard images
 		 */
-		normalImageLeft = [[UIImage imageNamed:kSTSegmentLeftBtn] retain];
-		normalImageMiddle = [[UIImage imageNamed:kSTSegmentMiddleBtn] retain];
-		normalImageRight= [[UIImage imageNamed:kSTSegmentRightBtn] retain];
-		selectedImageLeft = [[UIImage imageNamed:kSTSegmentLeftSelectedBtn] retain];
-		selectedImageMiddle = [[UIImage imageNamed:kSTSegmentMiddleSelectedBtn] retain];
-		selectedImageRight = [[UIImage imageNamed:kSTSegmentRightSelectedBtn] retain];
+		normalImageLeft = [UIImage imageNamed:kSTSegmentLeftBtn];
+		normalImageMiddle = [UIImage imageNamed:kSTSegmentMiddleBtn];
+		normalImageRight= [UIImage imageNamed:kSTSegmentRightBtn];
+		selectedImageLeft = [UIImage imageNamed:kSTSegmentLeftSelectedBtn];
+		selectedImageMiddle = [UIImage imageNamed:kSTSegmentMiddleSelectedBtn];
+		selectedImageRight = [UIImage imageNamed:kSTSegmentRightSelectedBtn];
 		
 		selectedSegmentIndex = STSegmentedControlNoSegment;
 		momentary = NO;
@@ -51,12 +51,12 @@
 		/*
 		 Set the standard images
 		 */
-		normalImageLeft = [[UIImage imageNamed:kSTSegmentLeftBtn] retain];
-		normalImageMiddle = [[UIImage imageNamed:kSTSegmentMiddleBtn] retain];
-		normalImageRight= [[UIImage imageNamed:kSTSegmentRightBtn] retain];
-		selectedImageLeft = [[UIImage imageNamed:kSTSegmentLeftSelectedBtn] retain];
-		selectedImageMiddle = [[UIImage imageNamed:kSTSegmentMiddleSelectedBtn] retain];
-		selectedImageRight = [[UIImage imageNamed:kSTSegmentRightSelectedBtn] retain];
+		normalImageLeft = [UIImage imageNamed:kSTSegmentLeftBtn];
+		normalImageMiddle = [UIImage imageNamed:kSTSegmentMiddleBtn];
+		normalImageRight= [UIImage imageNamed:kSTSegmentRightBtn];
+		selectedImageLeft = [UIImage imageNamed:kSTSegmentLeftSelectedBtn];
+		selectedImageMiddle = [UIImage imageNamed:kSTSegmentMiddleSelectedBtn];
+		selectedImageRight = [UIImage imageNamed:kSTSegmentRightSelectedBtn];
 		
 		selectedSegmentIndex = STSegmentedControlNoSegment;
 		momentary = NO;
@@ -80,12 +80,12 @@
 		/*
 		 Set the standard images
 		 */
-		normalImageLeft = [[UIImage imageNamed:kSTSegmentLeftBtn] retain];
-		normalImageMiddle = [[UIImage imageNamed:kSTSegmentMiddleBtn] retain];
-		normalImageRight= [[UIImage imageNamed:kSTSegmentRightBtn] retain];
-		selectedImageLeft = [[UIImage imageNamed:kSTSegmentLeftSelectedBtn] retain];
-		selectedImageMiddle = [[UIImage imageNamed:kSTSegmentMiddleSelectedBtn] retain];
-		selectedImageRight = [[UIImage imageNamed:kSTSegmentRightSelectedBtn] retain];
+		normalImageLeft = [UIImage imageNamed:kSTSegmentLeftBtn];
+		normalImageMiddle = [UIImage imageNamed:kSTSegmentMiddleBtn];
+		normalImageRight= [UIImage imageNamed:kSTSegmentRightBtn];
+		selectedImageLeft = [UIImage imageNamed:kSTSegmentLeftSelectedBtn];
+		selectedImageMiddle = [UIImage imageNamed:kSTSegmentMiddleSelectedBtn];
+		selectedImageRight = [UIImage imageNamed:kSTSegmentRightSelectedBtn];
 		
 		selectedSegmentIndex = STSegmentedControlNoSegment;
 		momentary = NO;
@@ -348,8 +348,7 @@
 - (void)setSegments:(NSMutableArray *)array {
 	if(array != segments)
 	{
-		[segments release];
-		segments = [array retain];
+		segments = array;
 	
 		[self resetSegments];
 	}
@@ -380,8 +379,7 @@
 - (void)setNormalImageLeft:(UIImage *)image {
 	if(image != normalImageLeft)
 	{
-		[normalImageLeft release];
-		normalImageLeft = [image retain];
+		normalImageLeft = image;
 	
 		[self updateUI];
 	}
@@ -390,8 +388,7 @@
 - (void)setNormalImageMiddle:(UIImage *)image {
 	if(image != normalImageMiddle)
 	{
-		[normalImageMiddle release];
-		normalImageMiddle = [image retain];
+		normalImageMiddle = image;
 	
 		[self updateUI];
 	}
@@ -400,8 +397,7 @@
 - (void)setNormalImageRight:(UIImage *)image {
 	if(image != normalImageRight)
 	{
-		[normalImageRight release];
-		normalImageRight = [image retain];
+		normalImageRight = image;
 	
 		[self updateUI];
 	}
@@ -410,8 +406,7 @@
 - (void)setSelectedImageLeft:(UIImage *)image {
 	if(image != selectedImageLeft)
 	{
-		[selectedImageLeft release];
-		selectedImageLeft = [image retain];
+		selectedImageLeft = image;
 	
 		[self updateUI];
 	}
@@ -420,8 +415,7 @@
 - (void)setSelectedImageMiddle:(UIImage *)image {
 	if(image != selectedImageMiddle)
 	{
-		[selectedImageMiddle release];
-		selectedImageMiddle = [image retain];
+		selectedImageMiddle = image;
 	
 		[self updateUI];
 	}
@@ -430,24 +424,10 @@
 - (void)setSelectedImageRight:(UIImage *)image {
 	if(image != selectedImageRight)
 	{
-		[selectedImageRight release];
-		selectedImageRight = [image retain];
+		selectedImageRight = image;
 	
 		[self updateUI];
 	}
-}
-
-#pragma mark -
-
-- (void)dealloc {
-	[segments release];
-	[normalImageLeft release];
-	[normalImageMiddle release];
-	[normalImageRight release];
-	[selectedImageLeft release];
-	[selectedImageMiddle release];
-	[selectedImageRight release];
-	[super dealloc];
 }
 
 @end

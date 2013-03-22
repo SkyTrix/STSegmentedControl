@@ -43,13 +43,13 @@ enum {
 - (void)setImage:(NSString *)image forSegmentAtIndex:(NSUInteger)index;
 - (UIImage *)imageForSegmentAtIndex:(NSUInteger)index;
 
-@property (nonatomic, retain) NSMutableArray *segments; // at least two (2) NSStrings are needed for a STSegmentedControl to be displayed
-@property (nonatomic, retain) UIImage *normalImageLeft;
-@property (nonatomic, retain) UIImage *normalImageMiddle;
-@property (nonatomic, retain) UIImage *normalImageRight;
-@property (nonatomic, retain) UIImage *selectedImageLeft;
-@property (nonatomic, retain) UIImage *selectedImageMiddle;
-@property (nonatomic, retain) UIImage *selectedImageRight;
+@property (nonatomic, strong) NSMutableArray *segments; // at least two (2) NSStrings are needed for a STSegmentedControl to be displayed
+@property (nonatomic, strong) UIImage *normalImageLeft;
+@property (nonatomic, strong) UIImage *normalImageMiddle;
+@property (nonatomic, strong) UIImage *normalImageRight;
+@property (nonatomic, strong) UIImage *selectedImageLeft;
+@property (nonatomic, strong) UIImage *selectedImageMiddle;
+@property (nonatomic, strong) UIImage *selectedImageRight;
 @property (nonatomic, readonly) NSUInteger numberOfSegments;
 @property (nonatomic, getter=isMomentary) BOOL momentary; // if set, then we don't keep showing selected state after tracking ends. default is NO
 
