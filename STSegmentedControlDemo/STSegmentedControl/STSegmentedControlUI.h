@@ -25,5 +25,12 @@
 #define kSTSegmentRightBtnTopCap        0
 #define kSTSegmentRightBtnLeftCap       1
 
+#define kSTSegmentBtnFont                   [UIFont systemFontOfSize:14]
+#define kSTSegmentBtnTextColor              [UIColor whiteColor]
+#define kSTSegmentSelectedBtnTextColor      [UIColor whiteColor]
+#define kSTSegmentBtnShadowColor            [UIColor darkGrayColor]
+#define kSTSegmentSelectedBtnShadowColor    [UIColor darkGrayColor]
+#define kSTSegmentBtnShadowOffset           CGSizeMake(0, -1)
+
 
 #endif

@@ -135,29 +135,47 @@
 			
 			if(indexOfObject == 0)
 			{
-				if(selectedSegmentIndex == indexOfObject)
+				if(selectedSegmentIndex == indexOfObject) {
 					[button setBackgroundImage:[selectedImageLeft stretchableImageWithLeftCapWidth:kSTSegmentLeftBtnLeftCap topCapHeight:kSTSegmentLeftBtnTopCap] forState:UIControlStateNormal];
-				else
+                    button.titleLabel.textColor = kSTSegmentSelectedBtnTextColor;
+                    button.titleLabel.shadowColor = kSTSegmentSelectedBtnShadowColor;
+                }
+				else {
 					[button setBackgroundImage:[normalImageLeft stretchableImageWithLeftCapWidth:kSTSegmentLeftBtnLeftCap topCapHeight:kSTSegmentLeftBtnTopCap] forState:UIControlStateNormal];
+                    button.titleLabel.textColor = kSTSegmentBtnTextColor;
+                    button.titleLabel.shadowColor = kSTSegmentBtnShadowColor;
+                }
 			}
 			else if(indexOfObject == numberOfSegments - 1)
 			{
-				if(selectedSegmentIndex == indexOfObject)
+				if(selectedSegmentIndex == indexOfObject) {
 					[button setBackgroundImage:[selectedImageRight stretchableImageWithLeftCapWidth:kSTSegmentRightBtnLeftCap topCapHeight:kSTSegmentRightBtnTopCap] forState:UIControlStateNormal];
-				else
+                    button.titleLabel.textColor = kSTSegmentSelectedBtnTextColor;
+                    button.titleLabel.shadowColor = kSTSegmentSelectedBtnShadowColor;
+                }
+				else {
 					[button setBackgroundImage:[normalImageRight stretchableImageWithLeftCapWidth:kSTSegmentRightBtnLeftCap topCapHeight:kSTSegmentRightBtnTopCap] forState:UIControlStateNormal];
+                    button.titleLabel.textColor = kSTSegmentBtnTextColor;
+                    button.titleLabel.shadowColor = kSTSegmentBtnShadowColor;
+                }
 			}
 			else
 			{
-				if(selectedSegmentIndex == indexOfObject)
+				if(selectedSegmentIndex == indexOfObject) {
 					[button setBackgroundImage:[selectedImageMiddle stretchableImageWithLeftCapWidth:kSTSegmentMiddleBtnLeftCap topCapHeight:kSTSegmentMiddleBtnTopCap] forState:UIControlStateNormal];
-				else
+                    button.titleLabel.textColor = kSTSegmentSelectedBtnTextColor;
+                    button.titleLabel.shadowColor = kSTSegmentSelectedBtnShadowColor;
+                }
+                else {
 					[button setBackgroundImage:[normalImageMiddle stretchableImageWithLeftCapWidth:kSTSegmentMiddleBtnLeftCap topCapHeight:kSTSegmentMiddleBtnTopCap] forState:UIControlStateNormal];
+                    button.titleLabel.textColor = kSTSegmentBtnTextColor;
+                    button.titleLabel.shadowColor = kSTSegmentBtnShadowColor;
+                }
 			}
 			
 			button.frame = segmentFrame;
-			button.titleLabel.font = [UIFont boldSystemFontOfSize:12];
-			button.titleLabel.shadowOffset = CGSizeMake(0, -1);
+			button.titleLabel.font = kSTSegmentBtnFont;
+			button.titleLabel.shadowOffset = kSTSegmentBtnShadowOffset;
 			button.tag = indexOfObject + 1;
 			button.adjustsImageWhenHighlighted = NO;
 			
@@ -204,6 +222,9 @@
 		{
 			[button setBackgroundImage:[normalImageMiddle stretchableImageWithLeftCapWidth:kSTSegmentMiddleBtnLeftCap topCapHeight:kSTSegmentMiddleBtnTopCap] forState:UIControlStateNormal];
 		}
+        
+        button.titleLabel.textColor = kSTSegmentBtnTextColor;
+        button.titleLabel.shadowColor = kSTSegmentBtnShadowColor;
 	}
 }
 
@@ -248,6 +269,9 @@
 	{
 		[button setBackgroundImage:[selectedImageMiddle stretchableImageWithLeftCapWidth:kSTSegmentMiddleBtnLeftCap topCapHeight:kSTSegmentMiddleBtnTopCap] forState:UIControlStateNormal];
 	}
+    
+    button.titleLabel.textColor = kSTSegmentSelectedBtnTextColor;
+    button.titleLabel.shadowColor = kSTSegmentSelectedBtnShadowColor;
 	
 	if(momentary)
 		[self performSelector:@selector(deselectAllSegments) withObject:nil afterDelay:0.2];
