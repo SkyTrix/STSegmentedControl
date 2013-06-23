@@ -9,7 +9,11 @@
 #import "STSegmentedControl.h"
 #import "STSegmentedControlUI.h"
 
-@interface STSegmentedControl (Private)
+@interface STSegmentedControl ()
+@property (nonatomic, getter = isProgrammaticIndexChange) BOOL programmaticIndexChange;
+
+@property (nonatomic, readwrite) NSUInteger numberOfSegments;
+
 - (void)updateUI;
 - (void)deselectAllSegments;
 - (void)insertSegmentWithObject:(NSObject *)object atIndex:(NSUInteger)index;
@@ -17,9 +21,6 @@
 @end
 
 @implementation STSegmentedControl
-
-@synthesize segments, numberOfSegments, selectedSegmentIndex, momentary;
-@synthesize normalImageLeft, normalImageMiddle, normalImageRight, selectedImageLeft, selectedImageMiddle, selectedImageRight;
 
 #pragma mark -
 #pragma mark Initializer
@@ -31,15 +32,22 @@
 		/*
 		 Set the standard images
 		 */
-		normalImageLeft = [UIImage imageNamed:kSTSegmentLeftBtn];
-		normalImageMiddle = [UIImage imageNamed:kSTSegmentMiddleBtn];
-		normalImageRight= [UIImage imageNamed:kSTSegmentRightBtn];
-		selectedImageLeft = [UIImage imageNamed:kSTSegmentLeftSelectedBtn];
-		selectedImageMiddle = [UIImage imageNamed:kSTSegmentMiddleSelectedBtn];
-		selectedImageRight = [UIImage imageNamed:kSTSegmentRightSelectedBtn];
+		self.normalImageLeft = [UIImage imageNamed:kSTSegmentLeftBtn];
+		self.normalImageMiddle = [UIImage imageNamed:kSTSegmentMiddleBtn];
+		self.normalImageRight= [UIImage imageNamed:kSTSegmentRightBtn];
+		self.selectedImageLeft = [UIImage imageNamed:kSTSegmentLeftSelectedBtn];
+		self.selectedImageMiddle = [UIImage imageNamed:kSTSegmentMiddleSelectedBtn];
+		self.selectedImageRight = [UIImage imageNamed:kSTSegmentRightSelectedBtn];
+        
+        self.buttonFont = kSTSegmentBtnFont;
+        self.buttonTextColor = kSTSegmentBtnTextColor;
+        self.selectedButtonTextColor = kSTSegmentSelectedBtnTextColor;
+        self.buttonShadowColor = kSTSegmentBtnShadowColor;
+        self.selectedButtonShadowColor = kSTSegmentSelectedBtnShadowColor;
+        self.buttonShadowOffset = kSTSegmentBtnShadowOffset;
 		
-		selectedSegmentIndex = STSegmentedControlNoSegment;
-		momentary = NO;
+		self.selectedSegmentIndex = STSegmentedControlNoSegment;
+		self.momentary = NO;
     }
     return self;
 }
@@ -51,15 +59,22 @@
 		/*
 		 Set the standard images
 		 */
-		normalImageLeft = [UIImage imageNamed:kSTSegmentLeftBtn];
-		normalImageMiddle = [UIImage imageNamed:kSTSegmentMiddleBtn];
-		normalImageRight= [UIImage imageNamed:kSTSegmentRightBtn];
-		selectedImageLeft = [UIImage imageNamed:kSTSegmentLeftSelectedBtn];
-		selectedImageMiddle = [UIImage imageNamed:kSTSegmentMiddleSelectedBtn];
-		selectedImageRight = [UIImage imageNamed:kSTSegmentRightSelectedBtn];
+		self.normalImageLeft = [UIImage imageNamed:kSTSegmentLeftBtn];
+		self.normalImageMiddle = [UIImage imageNamed:kSTSegmentMiddleBtn];
+		self.normalImageRight= [UIImage imageNamed:kSTSegmentRightBtn];
+		self.selectedImageLeft = [UIImage imageNamed:kSTSegmentLeftSelectedBtn];
+		self.selectedImageMiddle = [UIImage imageNamed:kSTSegmentMiddleSelectedBtn];
+		self.selectedImageRight = [UIImage imageNamed:kSTSegmentRightSelectedBtn];
+        
+        self.buttonFont = kSTSegmentBtnFont;
+        self.buttonTextColor = kSTSegmentBtnTextColor;
+        self.selectedButtonTextColor = kSTSegmentSelectedBtnTextColor;
+        self.buttonShadowColor = kSTSegmentBtnShadowColor;
+        self.selectedButtonShadowColor = kSTSegmentSelectedBtnShadowColor;
+        self.buttonShadowOffset = kSTSegmentBtnShadowOffset;
 		
-		selectedSegmentIndex = STSegmentedControlNoSegment;
-		momentary = NO;
+		self.selectedSegmentIndex = STSegmentedControlNoSegment;
+		self.momentary = NO;
 		
 		/*
 		 Set items
@@ -80,15 +95,22 @@
 		/*
 		 Set the standard images
 		 */
-		normalImageLeft = [UIImage imageNamed:kSTSegmentLeftBtn];
-		normalImageMiddle = [UIImage imageNamed:kSTSegmentMiddleBtn];
-		normalImageRight= [UIImage imageNamed:kSTSegmentRightBtn];
-		selectedImageLeft = [UIImage imageNamed:kSTSegmentLeftSelectedBtn];
-		selectedImageMiddle = [UIImage imageNamed:kSTSegmentMiddleSelectedBtn];
-		selectedImageRight = [UIImage imageNamed:kSTSegmentRightSelectedBtn];
+		self.normalImageLeft = [UIImage imageNamed:kSTSegmentLeftBtn];
+		self.normalImageMiddle = [UIImage imageNamed:kSTSegmentMiddleBtn];
+		self.normalImageRight= [UIImage imageNamed:kSTSegmentRightBtn];
+		self.selectedImageLeft = [UIImage imageNamed:kSTSegmentLeftSelectedBtn];
+		self.selectedImageMiddle = [UIImage imageNamed:kSTSegmentMiddleSelectedBtn];
+		self.selectedImageRight = [UIImage imageNamed:kSTSegmentRightSelectedBtn];
+        
+        self.buttonFont = kSTSegmentBtnFont;
+        self.buttonTextColor = kSTSegmentBtnTextColor;
+        self.selectedButtonTextColor = kSTSegmentSelectedBtnTextColor;
+        self.buttonShadowColor = kSTSegmentBtnShadowColor;
+        self.selectedButtonShadowColor = kSTSegmentSelectedBtnShadowColor;
+        self.buttonShadowOffset = kSTSegmentBtnShadowOffset;
 		
-		selectedSegmentIndex = STSegmentedControlNoSegment;
-		momentary = NO;
+		self.selectedSegmentIndex = STSegmentedControlNoSegment;
+		self.momentary = NO;
 	}
 	
     return self;
@@ -105,22 +127,22 @@
 	/*
 	 We're only displaying this element if there are at least two buttons
 	 */
-	if([segments count] > 1)
+	if([self.segments count] > 1)
 	{
-		numberOfSegments = [segments count];
+		self.numberOfSegments = [self.segments count];
 		int indexOfObject = 0;
 		
-		float segmentWidth = (float)self.frame.size.width / numberOfSegments;
+		float segmentWidth = (float)self.frame.size.width / self.numberOfSegments;
 		float lastX = 0.0;
 		
-		for(NSObject *object in segments)
+		for(NSObject *object in self.segments)
 		{
 			/*
 			 Calculate the frame for the current segment
 			 */
 			int currentSegmentWidth; 
 			
-			if(indexOfObject < numberOfSegments - 1)
+			if(indexOfObject < self.numberOfSegments - 1)
 				currentSegmentWidth = round(lastX + segmentWidth) - round(lastX) + 1;
 			else
 				currentSegmentWidth = round(lastX + segmentWidth) - round(lastX);
@@ -135,47 +157,47 @@
 			
 			if(indexOfObject == 0)
 			{
-				if(selectedSegmentIndex == indexOfObject) {
-					[button setBackgroundImage:[selectedImageLeft stretchableImageWithLeftCapWidth:kSTSegmentLeftBtnLeftCap topCapHeight:kSTSegmentLeftBtnTopCap] forState:UIControlStateNormal];
-                    button.titleLabel.textColor = kSTSegmentSelectedBtnTextColor;
-                    button.titleLabel.shadowColor = kSTSegmentSelectedBtnShadowColor;
+				if(self.selectedSegmentIndex == indexOfObject) {
+					[button setBackgroundImage:[self.selectedImageLeft stretchableImageWithLeftCapWidth:kSTSegmentLeftBtnLeftCap topCapHeight:kSTSegmentLeftBtnTopCap] forState:UIControlStateNormal];
+                    button.titleLabel.textColor = self.selectedButtonTextColor;
+                    button.titleLabel.shadowColor = self.selectedButtonShadowColor;
                 }
 				else {
-					[button setBackgroundImage:[normalImageLeft stretchableImageWithLeftCapWidth:kSTSegmentLeftBtnLeftCap topCapHeight:kSTSegmentLeftBtnTopCap] forState:UIControlStateNormal];
-                    button.titleLabel.textColor = kSTSegmentBtnTextColor;
-                    button.titleLabel.shadowColor = kSTSegmentBtnShadowColor;
+					[button setBackgroundImage:[self.normalImageLeft stretchableImageWithLeftCapWidth:kSTSegmentLeftBtnLeftCap topCapHeight:kSTSegmentLeftBtnTopCap] forState:UIControlStateNormal];
+                    button.titleLabel.textColor = self.buttonTextColor;
+                    button.titleLabel.shadowColor = self.buttonShadowColor;
                 }
 			}
-			else if(indexOfObject == numberOfSegments - 1)
+			else if(indexOfObject == self.numberOfSegments - 1)
 			{
-				if(selectedSegmentIndex == indexOfObject) {
-					[button setBackgroundImage:[selectedImageRight stretchableImageWithLeftCapWidth:kSTSegmentRightBtnLeftCap topCapHeight:kSTSegmentRightBtnTopCap] forState:UIControlStateNormal];
-                    button.titleLabel.textColor = kSTSegmentSelectedBtnTextColor;
-                    button.titleLabel.shadowColor = kSTSegmentSelectedBtnShadowColor;
+				if(self.selectedSegmentIndex == indexOfObject) {
+					[button setBackgroundImage:[self.selectedImageRight stretchableImageWithLeftCapWidth:kSTSegmentRightBtnLeftCap topCapHeight:kSTSegmentRightBtnTopCap] forState:UIControlStateNormal];
+                    button.titleLabel.textColor = self.selectedButtonTextColor;
+                    button.titleLabel.shadowColor = self.selectedButtonShadowColor;
                 }
 				else {
-					[button setBackgroundImage:[normalImageRight stretchableImageWithLeftCapWidth:kSTSegmentRightBtnLeftCap topCapHeight:kSTSegmentRightBtnTopCap] forState:UIControlStateNormal];
-                    button.titleLabel.textColor = kSTSegmentBtnTextColor;
-                    button.titleLabel.shadowColor = kSTSegmentBtnShadowColor;
+					[button setBackgroundImage:[self.normalImageRight stretchableImageWithLeftCapWidth:kSTSegmentRightBtnLeftCap topCapHeight:kSTSegmentRightBtnTopCap] forState:UIControlStateNormal];
+                    button.titleLabel.textColor = self.buttonTextColor;
+                    button.titleLabel.shadowColor = self.buttonShadowColor;
                 }
 			}
 			else
 			{
-				if(selectedSegmentIndex == indexOfObject) {
-					[button setBackgroundImage:[selectedImageMiddle stretchableImageWithLeftCapWidth:kSTSegmentMiddleBtnLeftCap topCapHeight:kSTSegmentMiddleBtnTopCap] forState:UIControlStateNormal];
-                    button.titleLabel.textColor = kSTSegmentSelectedBtnTextColor;
-                    button.titleLabel.shadowColor = kSTSegmentSelectedBtnShadowColor;
+				if(self.selectedSegmentIndex == indexOfObject) {
+					[button setBackgroundImage:[self.selectedImageMiddle stretchableImageWithLeftCapWidth:kSTSegmentMiddleBtnLeftCap topCapHeight:kSTSegmentMiddleBtnTopCap] forState:UIControlStateNormal];
+                    button.titleLabel.textColor = self.selectedButtonTextColor;
+                    button.titleLabel.shadowColor = self.selectedButtonShadowColor;
                 }
                 else {
-					[button setBackgroundImage:[normalImageMiddle stretchableImageWithLeftCapWidth:kSTSegmentMiddleBtnLeftCap topCapHeight:kSTSegmentMiddleBtnTopCap] forState:UIControlStateNormal];
-                    button.titleLabel.textColor = kSTSegmentBtnTextColor;
-                    button.titleLabel.shadowColor = kSTSegmentBtnShadowColor;
+					[button setBackgroundImage:[self.normalImageMiddle stretchableImageWithLeftCapWidth:kSTSegmentMiddleBtnLeftCap topCapHeight:kSTSegmentMiddleBtnTopCap] forState:UIControlStateNormal];
+                    button.titleLabel.textColor = self.buttonTextColor;
+                    button.titleLabel.shadowColor = self.buttonShadowColor;
                 }
 			}
 			
 			button.frame = segmentFrame;
-			button.titleLabel.font = kSTSegmentBtnFont;
-			button.titleLabel.shadowOffset = kSTSegmentBtnShadowOffset;
+			button.titleLabel.font = self.buttonFont;
+			button.titleLabel.shadowOffset = self.buttonShadowOffset;
 			button.tag = indexOfObject + 1;
 			button.adjustsImageWhenHighlighted = NO;
 			
@@ -200,7 +222,7 @@
 		/*
 		 Make sure the selected segment shows both its separators
 		 */
-		[self bringSubviewToFront:[self viewWithTag:selectedSegmentIndex + 1]];
+		[self bringSubviewToFront:[self viewWithTag:self.selectedSegmentIndex + 1]];
 	}
 }
 
@@ -212,19 +234,19 @@
 	{
 		if(button.tag == 1)
 		{
-			[button setBackgroundImage:[normalImageLeft stretchableImageWithLeftCapWidth:kSTSegmentLeftBtnLeftCap topCapHeight:kSTSegmentLeftBtnTopCap] forState:UIControlStateNormal];
+			[button setBackgroundImage:[self.normalImageLeft stretchableImageWithLeftCapWidth:kSTSegmentLeftBtnLeftCap topCapHeight:kSTSegmentLeftBtnTopCap] forState:UIControlStateNormal];
 		}
-		else if(button.tag == numberOfSegments)
+		else if(button.tag == self.numberOfSegments)
 		{
-			[button setBackgroundImage:[normalImageRight stretchableImageWithLeftCapWidth:kSTSegmentRightBtnLeftCap topCapHeight:kSTSegmentRightBtnTopCap] forState:UIControlStateNormal];
+			[button setBackgroundImage:[self.normalImageRight stretchableImageWithLeftCapWidth:kSTSegmentRightBtnLeftCap topCapHeight:kSTSegmentRightBtnTopCap] forState:UIControlStateNormal];
 		}
 		else
 		{
-			[button setBackgroundImage:[normalImageMiddle stretchableImageWithLeftCapWidth:kSTSegmentMiddleBtnLeftCap topCapHeight:kSTSegmentMiddleBtnTopCap] forState:UIControlStateNormal];
+			[button setBackgroundImage:[self.normalImageMiddle stretchableImageWithLeftCapWidth:kSTSegmentMiddleBtnLeftCap topCapHeight:kSTSegmentMiddleBtnTopCap] forState:UIControlStateNormal];
 		}
         
-        button.titleLabel.textColor = kSTSegmentBtnTextColor;
-        button.titleLabel.shadowColor = kSTSegmentBtnShadowColor;
+        button.titleLabel.textColor = self.buttonTextColor;
+        button.titleLabel.shadowColor = self.buttonShadowColor;
 	}
 }
 
@@ -232,7 +254,7 @@
 	/*
 	 Reset the index and send the action
 	 */
-	selectedSegmentIndex = STSegmentedControlNoSegment;
+	self.selectedSegmentIndex = STSegmentedControlNoSegment;
 	[self sendActionsForControlEvents:UIControlEventValueChanged];
 	
 	[self updateUI];
@@ -247,10 +269,10 @@
 	UIButton *button = sender;
 	[self bringSubviewToFront:button];
 	
-	if(selectedSegmentIndex != button.tag - 1 || programmaticIndexChange)
+	if(self.selectedSegmentIndex != button.tag - 1 || self.isProgrammaticIndexChange)
 	{
-		selectedSegmentIndex = button.tag - 1;
-		programmaticIndexChange = NO;
+		self.selectedSegmentIndex = button.tag - 1;
+		self.programmaticIndexChange = NO;
 		[self sendActionsForControlEvents:UIControlEventValueChanged];
 	}
 	
@@ -259,21 +281,21 @@
 	 */
 	if(button.tag == 1)
 	{
-		[button setBackgroundImage:[selectedImageLeft stretchableImageWithLeftCapWidth:kSTSegmentLeftBtnLeftCap topCapHeight:kSTSegmentLeftBtnTopCap] forState:UIControlStateNormal];
+		[button setBackgroundImage:[self.selectedImageLeft stretchableImageWithLeftCapWidth:kSTSegmentLeftBtnLeftCap topCapHeight:kSTSegmentLeftBtnTopCap] forState:UIControlStateNormal];
 	}
-	else if(button.tag == numberOfSegments)
+	else if(button.tag == self.numberOfSegments)
 	{
-		[button setBackgroundImage:[selectedImageRight stretchableImageWithLeftCapWidth:kSTSegmentRightBtnLeftCap topCapHeight:kSTSegmentRightBtnTopCap] forState:UIControlStateNormal];
+		[button setBackgroundImage:[self.selectedImageRight stretchableImageWithLeftCapWidth:kSTSegmentRightBtnLeftCap topCapHeight:kSTSegmentRightBtnTopCap] forState:UIControlStateNormal];
 	}
 	else
 	{
-		[button setBackgroundImage:[selectedImageMiddle stretchableImageWithLeftCapWidth:kSTSegmentMiddleBtnLeftCap topCapHeight:kSTSegmentMiddleBtnTopCap] forState:UIControlStateNormal];
+		[button setBackgroundImage:[self.selectedImageMiddle stretchableImageWithLeftCapWidth:kSTSegmentMiddleBtnLeftCap topCapHeight:kSTSegmentMiddleBtnTopCap] forState:UIControlStateNormal];
 	}
     
-    button.titleLabel.textColor = kSTSegmentSelectedBtnTextColor;
-    button.titleLabel.shadowColor = kSTSegmentSelectedBtnShadowColor;
+    button.titleLabel.textColor = self.selectedButtonTextColor;
+    button.titleLabel.shadowColor = self.selectedButtonShadowColor;
 	
-	if(momentary)
+	if(self.momentary)
 		[self performSelector:@selector(deselectAllSegments) withObject:nil afterDelay:0.2];
 }
 
@@ -284,9 +306,9 @@
 	/*
 	 Making sure we don't call out of bounds
 	 */
-	if(index <= numberOfSegments)
+	if(index <= self.numberOfSegments)
 	{
-		[segments insertObject:object atIndex:index];
+		[self.segments insertObject:object atIndex:index];
 		[self resetSegments];
 	}
 }
@@ -295,9 +317,9 @@
 	/*
 	 Making sure we don't call out of bounds
 	 */
-	if(index < numberOfSegments)
+	if(index < self.numberOfSegments)
 	{
-		[segments replaceObjectAtIndex:index withObject:object];
+		[self.segments replaceObjectAtIndex:index withObject:object];
 		[self resetSegments];
 	}
 }
@@ -317,17 +339,17 @@
 	 Making sure we don't call out of bounds
 	 If you delete a segment when only having two segments, the control won't be shown anymore
 	 */
-	if(index < numberOfSegments)
+	if(index < self.numberOfSegments)
 	{
-		[segments removeObjectAtIndex:index];
+		[self.segments removeObjectAtIndex:index];
 		[self resetSegments];
 	}
 }
 
 - (void)removeAllSegments {
-	[segments removeAllObjects];
+	[self.segments removeAllObjects];
 	
-	selectedSegmentIndex = STSegmentedControlNoSegment;
+	self.selectedSegmentIndex = STSegmentedControlNoSegment;
 	[self updateUI];
 }
 
@@ -343,11 +365,11 @@
 #pragma mark Getters
 
 - (NSString *)titleForSegmentAtIndex:(NSUInteger)index {
-	if(index < [segments count])
+	if(index < [self.segments count])
 	{
-		if([[segments objectAtIndex:index] isKindOfClass:[NSString class]])
+		if([[self.segments objectAtIndex:index] isKindOfClass:[NSString class]])
 		{
-			return [segments objectAtIndex:index];
+			return [self.segments objectAtIndex:index];
 		}
 	}
 	
@@ -355,11 +377,11 @@
 }
 
 - (UIImage *)imageForSegmentAtIndex:(NSUInteger)index {
-	if(index < [segments count])
+	if(index < [self.segments count])
 	{
-		if([[segments objectAtIndex:index] isKindOfClass:[UIImage class]])
+		if([[self.segments objectAtIndex:index] isKindOfClass:[UIImage class]])
 		{
-			return [segments objectAtIndex:index];
+			return [self.segments objectAtIndex:index];
 		}
 	}
 	
@@ -370,21 +392,21 @@
 #pragma mark Setters
 
 - (void)setSegments:(NSMutableArray *)array {
-	if(array != segments)
+	if(array != self.segments)
 	{
-		segments = array;
+		_segments = array;
 	
 		[self resetSegments];
 	}
 }
 
 - (void)setSelectedSegmentIndex:(NSInteger)index {
-	if(index != selectedSegmentIndex)
+	if(index != self.selectedSegmentIndex)
 	{
-		selectedSegmentIndex = index;
-		programmaticIndexChange = YES;
+		_selectedSegmentIndex = index;
+		self.programmaticIndexChange = YES;
 		
-		if(index >= 0 && index < numberOfSegments)
+		if(index >= 0 && index < self.numberOfSegments)
 		{
 			UIButton *button = (UIButton *)[self viewWithTag:index + 1];
 			[self segmentTapped:button];
@@ -401,54 +423,54 @@
 #pragma mark Image setters
 
 - (void)setNormalImageLeft:(UIImage *)image {
-	if(image != normalImageLeft)
+	if(image != self.normalImageLeft)
 	{
-		normalImageLeft = image;
+		_normalImageLeft = image;
 	
 		[self updateUI];
 	}
 }
 
 - (void)setNormalImageMiddle:(UIImage *)image {
-	if(image != normalImageMiddle)
+	if(image != self.normalImageMiddle)
 	{
-		normalImageMiddle = image;
+		_normalImageMiddle = image;
 	
 		[self updateUI];
 	}
 }
 
 - (void)setNormalImageRight:(UIImage *)image {
-	if(image != normalImageRight)
+	if(image != self.normalImageRight)
 	{
-		normalImageRight = image;
+		_normalImageRight = image;
 	
 		[self updateUI];
 	}
 }
 
 - (void)setSelectedImageLeft:(UIImage *)image {
-	if(image != selectedImageLeft)
+	if(image != self.selectedImageLeft)
 	{
-		selectedImageLeft = image;
+		_selectedImageLeft = image;
 	
 		[self updateUI];
 	}
 }
 
 - (void)setSelectedImageMiddle:(UIImage *)image {
-	if(image != selectedImageMiddle)
+	if(image != self.selectedImageMiddle)
 	{
-		selectedImageMiddle = image;
+		_selectedImageMiddle = image;
 	
 		[self updateUI];
 	}
 }
 
 - (void)setSelectedImageRight:(UIImage *)image {
-	if(image != selectedImageRight)
+	if(image != self.selectedImageRight)
 	{
-		selectedImageRight = image;
+		_selectedImageRight = image;
 	
 		[self updateUI];
 	}
