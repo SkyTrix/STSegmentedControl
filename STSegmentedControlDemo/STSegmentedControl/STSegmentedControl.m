@@ -310,7 +310,7 @@
 	[self setObject:title forSegmentAtIndex:index];
 }
 
-- (void)setImage:(NSString *)image forSegmentAtIndex:(NSUInteger)index {
+- (void)setImage:(UIImage *)image forSegmentAtIndex:(NSUInteger)index {
 	[self setObject:image forSegmentAtIndex:index];
 }
 

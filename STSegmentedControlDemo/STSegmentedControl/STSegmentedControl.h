@@ -40,7 +40,7 @@ enum {
 - (void)setTitle:(NSString *)title forSegmentAtIndex:(NSUInteger)index;
 - (NSString *)titleForSegmentAtIndex:(NSUInteger)index;
 
-- (void)setImage:(NSString *)image forSegmentAtIndex:(NSUInteger)index;
+- (void)setImage:(UIImage *)image forSegmentAtIndex:(NSUInteger)index;
 - (UIImage *)imageForSegmentAtIndex:(NSUInteger)index;
 
 @property (nonatomic, retain) NSMutableArray *segments; // at least two (2) NSStrings are needed for a STSegmentedControl to be displayed
