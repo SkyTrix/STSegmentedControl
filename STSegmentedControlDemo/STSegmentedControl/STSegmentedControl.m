@@ -225,7 +225,7 @@
 	UIButton *button = sender;
 	[self bringSubviewToFront:button];
 	
-	if(selectedSegmentIndex != button.tag - 1 || programmaticIndexChange)
+	if(selectedSegmentIndex != button.tag - 1 || !programmaticIndexChange)
 	{
 		selectedSegmentIndex = button.tag - 1;
 		programmaticIndexChange = NO;
