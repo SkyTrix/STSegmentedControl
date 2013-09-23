@@ -259,7 +259,7 @@
 	/*
 	 Making sure we don't call out of bounds
 	 */
-	if(index <= numberOfSegments && index >= 0)
+	if(index <= numberOfSegments)
 	{
 		[segments insertObject:object atIndex:index];
 		[self resetSegments];
@@ -270,7 +270,7 @@
 	/*
 	 Making sure we don't call out of bounds
 	 */
-	if(index < numberOfSegments && index >= 0)
+	if(index < numberOfSegments)
 	{
 		[segments replaceObjectAtIndex:index withObject:object];
 		[self resetSegments];
@@ -292,7 +292,7 @@
 	 Making sure we don't call out of bounds
 	 If you delete a segment when only having two segments, the control won't be shown anymore
 	 */
-	if(index < numberOfSegments && index >= 0)
+	if(index < numberOfSegments)
 	{
 		[segments removeObjectAtIndex:index];
 		[self resetSegments];
