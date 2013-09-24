@@ -225,12 +225,13 @@
 	UIButton *button = sender;
 	[self bringSubviewToFront:button];
 	
-	if(selectedSegmentIndex != button.tag - 1 || !programmaticIndexChange)
+	if(selectedSegmentIndex != button.tag - 1 && !programmaticIndexChange)
 	{
 		selectedSegmentIndex = button.tag - 1;
-		programmaticIndexChange = NO;
 		[self sendActionsForControlEvents:UIControlEventValueChanged];
 	}
+    
+    programmaticIndexChange = NO;
 	
 	/*
 	 Give the tapped segment the selected look
