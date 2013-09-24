@@ -225,12 +225,13 @@
 	UIButton *button = sender;
 	[self bringSubviewToFront:button];
 	
-	if(selectedSegmentIndex != button.tag - 1 || programmaticIndexChange)
+	if(selectedSegmentIndex != button.tag - 1 && !programmaticIndexChange)
 	{
 		selectedSegmentIndex = button.tag - 1;
-		programmaticIndexChange = NO;
 		[self sendActionsForControlEvents:UIControlEventValueChanged];
 	}
+    
+    programmaticIndexChange = NO;
 	
 	/*
 	 Give the tapped segment the selected look
@@ -259,7 +260,7 @@
 	/*
 	 Making sure we don't call out of bounds
 	 */
-	if(index <= numberOfSegments && index >= 0)
+	if(index <= numberOfSegments)
 	{
 		[segments insertObject:object atIndex:index];
 		[self resetSegments];
@@ -270,11 +271,35 @@
 	/*
 	 Making sure we don't call out of bounds
 	 */
-	if(index < numberOfSegments && index >= 0)
+	if(index < numberOfSegments)
 	{
 		[segments replaceObjectAtIndex:index withObject:object];
 		[self resetSegments];
 	}
+}
+
+#pragma mark -
+
+- (void)sizeToFit {
+    float width = 0;
+    for (id item in segments) {
+        if ([item isKindOfClass:[NSString class]]) {
+            NSString *string = (NSString *)item;
+            CGSize size = [string sizeWithFont:[UIFont boldSystemFontOfSize:12]];
+            width += size.width + 20;
+        }
+        else if ([item isKindOfClass:[UIImage class]]) {
+            UIImage *image = (UIImage *)item;
+#warning untested
+            width += image.size.width;
+        }
+    }
+    
+    if (width > 0) {
+        CGRect newFrame = self.frame;
+        newFrame.size.width = width;
+        self.frame = newFrame;
+    }
 }
 
 #pragma mark -
@@ -292,7 +317,7 @@
 	 Making sure we don't call out of bounds
 	 If you delete a segment when only having two segments, the control won't be shown anymore
 	 */
-	if(index < numberOfSegments && index >= 0)
+	if(index < numberOfSegments)
 	{
 		[segments removeObjectAtIndex:index];
 		[self resetSegments];
@@ -310,7 +335,7 @@
 	[self setObject:title forSegmentAtIndex:index];
 }
 
-- (void)setImage:(NSString *)image forSegmentAtIndex:(NSUInteger)index {
+- (void)setImage:(UIImage *)image forSegmentAtIndex:(NSUInteger)index {
 	[self setObject:image forSegmentAtIndex:index];
 }
 
