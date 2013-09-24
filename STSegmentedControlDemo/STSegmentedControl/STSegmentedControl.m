@@ -280,6 +280,30 @@
 
 #pragma mark -
 
+- (void)sizeToFit {
+    float width = 0;
+    for (id item in segments) {
+        if ([item isKindOfClass:[NSString class]]) {
+            NSString *string = (NSString *)item;
+            CGSize size = [string sizeWithFont:[UIFont boldSystemFontOfSize:12]];
+            width += size.width + 20;
+        }
+        else if ([item isKindOfClass:[UIImage class]]) {
+            UIImage *image = (UIImage *)item;
+#warning untested
+            width += image.size.width;
+        }
+    }
+    
+    if (width > 0) {
+        CGRect newFrame = self.frame;
+        newFrame.size.width = width;
+        self.frame = newFrame;
+    }
+}
+
+#pragma mark -
+
 - (void)insertSegmentWithTitle:(NSString *)title atIndex:(NSUInteger)index {
 	[self insertSegmentWithObject:title atIndex:index];	
 }
