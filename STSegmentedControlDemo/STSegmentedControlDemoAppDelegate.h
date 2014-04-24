@@ -14,7 +14,7 @@
 
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet STSegmentedControlDemoViewController *viewController;
+@property (nonatomic, strong) IBOutlet UIWindow *window;
+@property (nonatomic, strong) IBOutlet STSegmentedControlDemoViewController *viewController;
 
 @end

@@ -15,7 +15,7 @@
 	UISegmentedControl *standardSegment;
 }
 
-@property (nonatomic, retain) STSegmentedControl *segment;
-@property (nonatomic, retain) UISegmentedControl *standardSegment;
+@property (nonatomic, strong) STSegmentedControl *segment;
+@property (nonatomic, strong) UISegmentedControl *standardSegment;
 
 @end

@@ -27,7 +27,6 @@
 	segment.selectedSegmentIndex = 1;
 	segment.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	[self.view addSubview:segment];
-	[segment release];
     
 	/*
 	 UIKit UISegmentedControl
@@ -39,7 +38,6 @@
 	standardSegment.selectedSegmentIndex = 1;
 	standardSegment.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	[self.view addSubview:standardSegment];
-	[standardSegment release];
 	
 	/*
 	 Buttons
@@ -95,12 +93,6 @@
 	// e.g. self.myOutlet = nil;
 	self.segment = nil;
 	self.standardSegment = nil;
-}
-
-- (void)dealloc {
-	[segment release];
-	[standardSegment release];
-    [super dealloc];
 }
 
 @end
