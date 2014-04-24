@@ -1,10 +1,10 @@
 #STSegmentedControl
 
-###About:
+###About
 
 This is a custom class I wrote to enable use of own images in UISegmentedControl. I started with a UIControl subclass and tried to make it behave as much as possible like UISegmentedControl. This implementation also allows use of icons in the segments.
 
-###Usage:
+###Usage
 
 Using STSegmentedControl is straightforward. If you change your instances of UISegmentedControl to STSegmentedControl, most things will likely work.
 
