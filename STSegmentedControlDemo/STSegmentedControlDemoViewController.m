@@ -57,12 +57,12 @@
 
 - (void)valueChanged:(id)sender {
 	STSegmentedControl *control = sender;
-	NSLog(@"ST Index: %i", control.selectedSegmentIndex);
+	NSLog(@"ST Index: %li", (long)control.selectedSegmentIndex);
 }
 
 - (void)standardSegmentValueChanged:(id)sender {
 	UISegmentedControl *control = sender;
-	NSLog(@"UI Index: %i", control.selectedSegmentIndex);
+	NSLog(@"UI Index: %li", (long)control.selectedSegmentIndex);
 }
 
 - (void)button1Clicked:(id)sender {

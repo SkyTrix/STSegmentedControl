@@ -32,6 +32,7 @@
 		82902D3E13BE4AED00EAC215 /* selected_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82902D2E13BE4AED00EAC215 /* selected_right@2x.png */; };
 		82902D3F13BE4AED00EAC215 /* SomeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 82902D2F13BE4AED00EAC215 /* SomeIcon.png */; };
 		82902D4013BE4AED00EAC215 /* STSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 82902D3213BE4AED00EAC215 /* STSegmentedControl.m */; };
+		82BC3B23190D3EA100F7ADE5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82BC3B22190D3EA100F7ADE5 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		82902D2F13BE4AED00EAC215 /* SomeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SomeIcon.png; sourceTree = "<group>"; };
 		82902D3113BE4AED00EAC215 /* STSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSegmentedControl.h; sourceTree = "<group>"; };
 		82902D3213BE4AED00EAC215 /* STSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSegmentedControl.m; sourceTree = "<group>"; };
+		82BC3B22190D3EA100F7ADE5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8BFB6B4516FB4E10003EF279 /* STSegmentedControlUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STSegmentedControlUI.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,7 @@
 		82902CF313BE4AC700EAC215 = {
 			isa = PBXGroup;
 			children = (
+				82BC3B22190D3EA100F7ADE5 /* Default-568h@2x.png */,
 				8245E50013BE563400A3829A /* README.markdown */,
 				8245E50713BE5A2700A3829A /* LICENSE */,
 				82902D0813BE4AC700EAC215 /* STSegmentedControlDemo */,
@@ -195,6 +198,7 @@
 		82902CF513BE4AC700EAC215 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = FreshCreations;
 			};
 			buildConfigurationList = 82902CF813BE4AC700EAC215 /* Build configuration list for PBXProject "STSegmentedControlDemo" */;
@@ -231,6 +235,7 @@
 				82902D3913BE4AED00EAC215 /* selected_left.png in Resources */,
 				82902D3A13BE4AED00EAC215 /* selected_left@2x.png in Resources */,
 				82902D3B13BE4AED00EAC215 /* selected_middle.png in Resources */,
+				82BC3B23190D3EA100F7ADE5 /* Default-568h@2x.png in Resources */,
 				82902D3C13BE4AED00EAC215 /* selected_middle@2x.png in Resources */,
 				82902D3D13BE4AED00EAC215 /* selected_right.png in Resources */,
 				82902D3E13BE4AED00EAC215 /* selected_right@2x.png in Resources */,
@@ -287,7 +292,6 @@
 		82902D1D13BE4AC700EAC215 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -297,6 +301,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -304,7 +309,6 @@
 		82902D1E13BE4AC700EAC215 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
